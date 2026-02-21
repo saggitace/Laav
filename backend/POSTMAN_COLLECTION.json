@@ -1,0 +1,536 @@
+{
+  "info": {
+    "name": "LaavDesign SaaS Backend API",
+    "description": "Complete API collection for SaaS School ERP system",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000"
+    },
+    {
+      "key": "accessToken",
+      "value": ""
+    },
+    {
+      "key": "tenantId",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register Tenant",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\\n  \\\"email\\\": \\\"admin@myschool.com\\\",\\n  \\\"password\\\": \\\"SecurePass123!\\\",\\n  \\\"firstName\\\": \\\"John\\\",\\n  \\\"lastName\\\": \\\"Doe\\\",\\n  \\\"tenantName\\\": \\\"My School\\\"\\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Tenant-ID",
+                "value": "{{tenantId}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\\n  \\\"email\\\": \\\"admin@myschool.com\\\",\\n  \\\"password\\\": \\\"SecurePass123!\\\",\\n  \\\"tenantId\\\": \\\"{{tenantId}}\\\"\\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/profile",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "profile"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Schools",
+      "item": [
+        {
+          "name": "Create School",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              },
+              {
+                "key": "X-Tenant-ID",
+                "value": "{{tenantId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\\n  \\\"name\\\": \\\"ABC High School\\\",\\n  \\\"email\\\": \\\"abc@school.com\\\",\\n  \\\"phone\\\": \\\"9876543210\\\",\\n  \\\"address\\\": \\\"123 School Street\\\",\\n  \\\"city\\\": \\\"New York\\\",\\n  \\\"state\\\": \\\"NY\\\",\\n  \\\"country\\\": \\\"USA\\\",\\n  \\\"pincode\\\": \\\"10001\\\"\\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/schools",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "schools"]
+            }
+          }
+        },
+        {
+          "name": "Get All Schools",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              },
+              {
+                "key": "X-Tenant-ID",
+                "value": "{{tenantId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/schools",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "schools"]
+            }
+          }
+        },
+        {
+          "name": "Get School",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              },
+              {
+                "key": "X-Tenant-ID",
+                "value": "{{tenantId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/schools/school_id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "schools", "school_id"]
+            }
+          }
+        },
+        {
+          "name": "Update School",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              },
+              {
+                "key": "X-Tenant-ID",
+                "value": "{{tenantId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\\n  \\\"name\\\": \\\"ABC High School Updated\\\",\\n  \\\"phone\\\": \\\"9876543211\\\"\\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/schools/school_id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "schools", "school_id"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Classes",
+      "item": [
+        {
+          "name": "Create Class",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              },
+              {
+                "key": "X-Tenant-ID",
+                "value": "{{tenantId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\\n  \\\"schoolId\\\": \\\"school_id\\\",\\n  \\\"name\\\": \\\"Class 10-A\\\",\\n  \\\"section\\\": \\\"A\\\",\\n  \\\"academicYear\\\": \\\"2024-2025\\\",\\n  \\\"capacity\\\": 50\\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/schools/school_id/classes",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "schools", "school_id", "classes"]
+            }
+          }
+        },
+        {
+          "name": "Get Classes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              },
+              {
+                "key": "X-Tenant-ID",
+                "value": "{{tenantId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/schools/school_id/classes",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "schools", "school_id", "classes"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Students",
+      "item": [
+        {
+          "name": "Create Student",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              },
+              {
+                "key": "X-Tenant-ID",
+                "value": "{{tenantId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\\n  \\\"schoolId\\\": \\\"school_id\\\",\\n  \\\"classId\\\": \\\"class_id\\\",\\n  \\\"firstName\\\": \\\"Alice\\\",\\n  \\\"lastName\\\": \\\"Johnson\\\",\\n  \\\"email\\\": \\\"alice@student.com\\\",\\n  \\\"dateOfBirth\\\": \\\"2008-05-15\\\",\\n  \\\"rollNumber\\\": \\\"001\\\",\\n  \\\"parentName\\\": \\\"Robert Johnson\\\",\\n  \\\"parentEmail\\\": \\\"robert@parent.com\\\",\\n  \\\"parentPhone\\\": \\\"9876543210\\\"\\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/students",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "students"]
+            }
+          }
+        },
+        {
+          "name": "Get Students by School",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              },
+              {
+                "key": "X-Tenant-ID",
+                "value": "{{tenantId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/schools/school_id/students?page=1&pageSize=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "schools", "school_id", "students"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Attendance",
+      "item": [
+        {
+          "name": "Mark Attendance",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              },
+              {
+                "key": "X-Tenant-ID",
+                "value": "{{tenantId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\\n  \\\"classId\\\": \\\"class_id\\\",\\n  \\\"date\\\": \\\"2024-02-20\\\",\\n  \\\"records\\\": [\\n    {\\n      \\\"studentId\\\": \\\"student_id_1\\\",\\n      \\\"status\\\": \\\"present\\\"\\n    },\\n    {\\n      \\\"studentId\\\": \\\"student_id_2\\\",\\n      \\\"status\\\": \\\"absent\\\"\\n    }\\n  ]\\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/erp/attendance",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "erp", "attendance"]
+            }
+          }
+        },
+        {
+          "name": "Get Class Attendance",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              },
+              {
+                "key": "X-Tenant-ID",
+                "value": "{{tenantId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/erp/attendance/class/class_id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "erp", "attendance", "class", "class_id"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Grades",
+      "item": [
+        {
+          "name": "Submit Grade",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              },
+              {
+                "key": "X-Tenant-ID",
+                "value": "{{tenantId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\\n  \\\"studentId\\\": \\\"student_id\\\",\\n  \\\"subjectId\\\": \\\"subject_id\\\",\\n  \\\"marks\\\": 85,\\n  \\\"gradeType\\\": \\\"midterm\\\",\\n  \\\"academicYear\\\": \\\"2024-2025\\\",\\n  \\\"remarks\\\": \\\"Good performance\\\"\\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/erp/grades",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "erp", "grades"]
+            }
+          }
+        },
+        {
+          "name": "Get Student Grades",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              },
+              {
+                "key": "X-Tenant-ID",
+                "value": "{{tenantId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/erp/grades/student/student_id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "erp", "grades", "student", "student_id"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Fees",
+      "item": [
+        {
+          "name": "Create Fee",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              },
+              {
+                "key": "X-Tenant-ID",
+                "value": "{{tenantId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\\n  \\\"studentId\\\": \\\"student_id\\\",\\n  \\\"schoolId\\\": \\\"school_id\\\",\\n  \\\"amount\\\": 10000,\\n  \\\"dueDate\\\": \\\"2024-03-31\\\",\\n  \\\"feeType\\\": \\\"tuition\\\"\\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/erp/fees",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "erp", "fees"]
+            }
+          }
+        },
+        {
+          "name": "Get Student Fees",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              },
+              {
+                "key": "X-Tenant-ID",
+                "value": "{{tenantId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/erp/fees/student/student_id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "erp", "fees", "student", "student_id"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Messages",
+      "item": [
+        {
+          "name": "Send Message",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              },
+              {
+                "key": "X-Tenant-ID",
+                "value": "{{tenantId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\\n  \\\"recipientId\\\": \\\"recipient_user_id\\\",\\n  \\\"subject\\\": \\\"Class Performance\\\",\\n  \\\"body\\\": \\\"Alice needs to improve her math grades.\\\"\\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/erp/messages",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "erp", "messages"]
+            }
+          }
+        },
+        {
+          "name": "Get Inbox",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              },
+              {
+                "key": "X-Tenant-ID",
+                "value": "{{tenantId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/erp/messages/inbox",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "erp", "messages", "inbox"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
