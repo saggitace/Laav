@@ -6,7 +6,7 @@ import { AuthRequest } from './tenant.js';
 /**
  * Verify JWT token and extract user info
  */
-export const authMiddleware = (req: AuthRequest, res: Response, next: NextFunction): void => {
+export const authMiddleware = (req: any, res: Response, next: NextFunction): void => {
   try {
     const token = req.headers.authorization?.split(' ')[1];
 
@@ -34,7 +34,7 @@ export const authMiddleware = (req: AuthRequest, res: Response, next: NextFuncti
 /**
  * Verify that user belongs to the tenant
  */
-export const verifyTenantAccess = (req: AuthRequest, res: Response, next: NextFunction): void => {
+export const verifyTenantAccess = (req: any, res: Response, next: NextFunction): void => {
   const userTenantId = req.user?.tenantId;
   const requestTenantId = req.tenantId || req.headers['x-tenant-id'];
 
@@ -50,7 +50,7 @@ export const verifyTenantAccess = (req: AuthRequest, res: Response, next: NextFu
  * Role-based access control
  */
 export const requireRole = (...allowedRoles: string[]) => {
-  return (req: AuthRequest, res: Response, next: NextFunction): void => {
+  return (req: any, res: Response, next: NextFunction): void => {
     const userRole = req.user?.role;
 
     if (!userRole || !allowedRoles.includes(userRole)) {
@@ -65,7 +65,7 @@ export const requireRole = (...allowedRoles: string[]) => {
 /**
  * Admin only
  */
-export const requireAdmin = (req: AuthRequest, res: Response, next: NextFunction): void => {
+export const requireAdmin = (req: any, res: Response, next: NextFunction): void => {
   const userRole = req.user?.role;
 
   if (userRole !== 'admin' && userRole !== 'super-admin') {
@@ -79,7 +79,7 @@ export const requireAdmin = (req: AuthRequest, res: Response, next: NextFunction
 /**
  * Optional authentication - doesn't fail if no token, but sets user if token is valid
  */
-export const optionalAuthMiddleware = (req: AuthRequest, res: Response, next: NextFunction): void => {
+export const optionalAuthMiddleware = (req: any, res: Response, next: NextFunction): void => {
   try {
     const token = req.headers.authorization?.split(' ')[1];
 

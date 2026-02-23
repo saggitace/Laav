@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport({
  * POST /api/contact/send-email
  * Send contact form data via email to company email
  */
-router.post('/send-email', async (req, res) => {
+router.post('/send-email', async (req: any, res: any) => {
   try {
     const { senderName, senderEmail, company, message, companyEmail } = req.body;
 

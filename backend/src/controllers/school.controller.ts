@@ -5,7 +5,7 @@ import { AuthRequest } from '../middleware/tenant.js';
 import { parsePaginationParams } from '../utils/helpers.js';
 
 export class SchoolController {
-  async create(req: AuthRequest, res: Response): Promise<void> {
+  async create(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const school = await schoolService.createSchool(tenantId, req.body);
@@ -15,7 +15,7 @@ export class SchoolController {
     }
   }
 
-  async getAll(req: AuthRequest, res: Response): Promise<void> {
+  async getAll(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const schools = await schoolService.getSchools(tenantId);
@@ -25,7 +25,7 @@ export class SchoolController {
     }
   }
 
-  async getById(req: AuthRequest, res: Response): Promise<void> {
+  async getById(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { schoolId } = req.params;
@@ -42,7 +42,7 @@ export class SchoolController {
     }
   }
 
-  async update(req: AuthRequest, res: Response): Promise<void> {
+  async update(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { schoolId } = req.params;
@@ -59,7 +59,7 @@ export class SchoolController {
     }
   }
 
-  async delete(req: AuthRequest, res: Response): Promise<void> {
+  async delete(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { schoolId } = req.params;
@@ -78,7 +78,7 @@ export class SchoolController {
 }
 
 export class ClassController {
-  async create(req: AuthRequest, res: Response): Promise<void> {
+  async create(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const schoolClass = await classService.createClass(tenantId, req.body);
@@ -88,7 +88,7 @@ export class ClassController {
     }
   }
 
-  async getBySchool(req: AuthRequest, res: Response): Promise<void> {
+  async getBySchool(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { schoolId } = req.params;
@@ -99,7 +99,7 @@ export class ClassController {
     }
   }
 
-  async getById(req: AuthRequest, res: Response): Promise<void> {
+  async getById(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { classId } = req.params;
@@ -116,7 +116,7 @@ export class ClassController {
     }
   }
 
-  async update(req: AuthRequest, res: Response): Promise<void> {
+  async update(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { classId } = req.params;
@@ -133,7 +133,7 @@ export class ClassController {
     }
   }
 
-  async delete(req: AuthRequest, res: Response): Promise<void> {
+  async delete(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { classId } = req.params;
@@ -152,7 +152,7 @@ export class ClassController {
 }
 
 export class StudentController {
-  async create(req: AuthRequest, res: Response): Promise<void> {
+  async create(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const student = await studentService.createStudent(tenantId, req.body);
@@ -162,7 +162,7 @@ export class StudentController {
     }
   }
 
-  async getByClass(req: AuthRequest, res: Response): Promise<void> {
+  async getByClass(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { classId } = req.params;
@@ -178,7 +178,7 @@ export class StudentController {
     }
   }
 
-  async getBySchool(req: AuthRequest, res: Response): Promise<void> {
+  async getBySchool(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { schoolId } = req.params;
@@ -194,7 +194,7 @@ export class StudentController {
     }
   }
 
-  async getById(req: AuthRequest, res: Response): Promise<void> {
+  async getById(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { studentId } = req.params;
@@ -211,7 +211,7 @@ export class StudentController {
     }
   }
 
-  async update(req: AuthRequest, res: Response): Promise<void> {
+  async update(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { studentId } = req.params;
@@ -228,7 +228,7 @@ export class StudentController {
     }
   }
 
-  async delete(req: AuthRequest, res: Response): Promise<void> {
+  async delete(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { studentId } = req.params;

@@ -4,7 +4,7 @@ import { attendanceService, gradeService, feeService, messageService } from '../
 import { AuthRequest } from '../middleware/tenant.js';
 
 export class AttendanceController {
-  async mark(req: AuthRequest, res: Response): Promise<void> {
+  async mark(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const attendance = await attendanceService.markAttendance(tenantId, req.body);
@@ -14,7 +14,7 @@ export class AttendanceController {
     }
   }
 
-  async getByClass(req: AuthRequest, res: Response): Promise<void> {
+  async getByClass(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { classId } = req.params;
@@ -33,7 +33,7 @@ export class AttendanceController {
     }
   }
 
-  async getByStudent(req: AuthRequest, res: Response): Promise<void> {
+  async getByStudent(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { studentId } = req.params;
@@ -54,7 +54,7 @@ export class AttendanceController {
 }
 
 export class GradeController {
-  async submit(req: AuthRequest, res: Response): Promise<void> {
+  async submit(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const grade = await gradeService.submitGrade(tenantId, req.body);
@@ -64,7 +64,7 @@ export class GradeController {
     }
   }
 
-  async getByStudent(req: AuthRequest, res: Response): Promise<void> {
+  async getByStudent(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { studentId } = req.params;
@@ -82,7 +82,7 @@ export class GradeController {
     }
   }
 
-  async getBySubject(req: AuthRequest, res: Response): Promise<void> {
+  async getBySubject(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { subjectId } = req.params;
@@ -100,7 +100,7 @@ export class GradeController {
     }
   }
 
-  async update(req: AuthRequest, res: Response): Promise<void> {
+  async update(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { gradeId } = req.params;
@@ -119,7 +119,7 @@ export class GradeController {
 }
 
 export class FeeController {
-  async create(req: AuthRequest, res: Response): Promise<void> {
+  async create(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const fee = await feeService.createFee(tenantId, req.body);
@@ -129,7 +129,7 @@ export class FeeController {
     }
   }
 
-  async getByStudent(req: AuthRequest, res: Response): Promise<void> {
+  async getByStudent(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { studentId } = req.params;
@@ -140,7 +140,7 @@ export class FeeController {
     }
   }
 
-  async getBySchool(req: AuthRequest, res: Response): Promise<void> {
+  async getBySchool(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { schoolId } = req.params;
@@ -151,7 +151,7 @@ export class FeeController {
     }
   }
 
-  async updateStatus(req: AuthRequest, res: Response): Promise<void> {
+  async updateStatus(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { feeId } = req.params;
@@ -172,7 +172,7 @@ export class FeeController {
 }
 
 export class MessageController {
-  async send(req: AuthRequest, res: Response): Promise<void> {
+  async send(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const userId = req.user?.id;
@@ -193,7 +193,7 @@ export class MessageController {
     }
   }
 
-  async getInbox(req: AuthRequest, res: Response): Promise<void> {
+  async getInbox(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const userId = req.user?.id;
@@ -210,7 +210,7 @@ export class MessageController {
     }
   }
 
-  async getSent(req: AuthRequest, res: Response): Promise<void> {
+  async getSent(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const userId = req.user?.id;
@@ -227,7 +227,7 @@ export class MessageController {
     }
   }
 
-  async markAsRead(req: AuthRequest, res: Response): Promise<void> {
+  async markAsRead(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { messageId } = req.params;
@@ -245,7 +245,7 @@ export class MessageController {
     }
   }
 
-  async delete(req: AuthRequest, res: Response): Promise<void> {
+  async delete(req: any, res: Response): Promise<void> {
     try {
       const tenantId = req.tenantId!;
       const { messageId } = req.params;

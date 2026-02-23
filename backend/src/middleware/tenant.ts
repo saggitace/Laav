@@ -14,7 +14,7 @@ export interface AuthRequest extends Request {
 /**
  * Extract tenant ID from request (from header, URL param, or JWT)
  */
-export const tenantMiddleware = (req: AuthRequest, res: Response, next: NextFunction): void => {
+export const tenantMiddleware = (req: any, res: Response, next: NextFunction): void => {
   try {
     // Try to get tenant ID from header
     let tenantId = req.headers['x-tenant-id'] as string;
@@ -40,7 +40,7 @@ export const tenantMiddleware = (req: AuthRequest, res: Response, next: NextFunc
 /**
  * Validate tenant ID format
  */
-export const validateTenantId = (req: AuthRequest, res: Response, next: NextFunction): void => {
+export const validateTenantId = (req: any, res: Response, next: NextFunction): void => {
   const tenantId = req.tenantId || req.headers['x-tenant-id'];
 
   if (!tenantId || typeof tenantId !== 'string') {
@@ -60,7 +60,7 @@ export const validateTenantId = (req: AuthRequest, res: Response, next: NextFunc
 /**
  * Rate limiting middleware
  */
-export const rateLimitMiddleware = (req: AuthRequest, res: Response, next: NextFunction): void => {
+export const rateLimitMiddleware = (req: any, res: Response, next: NextFunction): void => {
   const key = `${req.ip}-${req.path}`;
   const limit = 100; // requests per minute
   const timeWindow = 60000; // 1 minute
@@ -74,7 +74,7 @@ export const rateLimitMiddleware = (req: AuthRequest, res: Response, next: NextF
  */
 export const errorHandler = (
   err: any,
-  req: AuthRequest,
+  req: any,
   res: Response,
   next: NextFunction
 ): void => {
@@ -89,6 +89,6 @@ export const errorHandler = (
 /**
  * 404 handler
  */
-export const notFoundHandler = (req: AuthRequest, res: Response, next: NextFunction): void => {
+export const notFoundHandler = (req: any, res: Response, next: NextFunction): void => {
   sendError(res, `Route ${req.originalUrl} not found`, 404);
 };

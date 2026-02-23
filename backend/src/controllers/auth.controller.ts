@@ -4,7 +4,7 @@ import { authService } from '../services/auth.service.js';
 import { AuthRequest } from '../middleware/tenant.js';
 
 export class AuthController {
-  async register(req: AuthRequest, res: Response): Promise<void> {
+  async register(req: any, res: Response): Promise<void> {
     try {
       const { email, password, firstName, lastName, tenantName } = req.body;
 
@@ -22,7 +22,7 @@ export class AuthController {
     }
   }
 
-  async login(req: AuthRequest, res: Response): Promise<void> {
+  async login(req: any, res: Response): Promise<void> {
     try {
       const { email, password, tenantId } = req.body;
 
@@ -38,7 +38,7 @@ export class AuthController {
     }
   }
 
-  async refreshToken(req: AuthRequest, res: Response): Promise<void> {
+  async refreshToken(req: any, res: Response): Promise<void> {
     try {
       const { refreshToken } = req.body;
       const tenantId = req.tenantId;
@@ -55,7 +55,7 @@ export class AuthController {
     }
   }
 
-  async logout(req: AuthRequest, res: Response): Promise<void> {
+  async logout(req: any, res: Response): Promise<void> {
     try {
       const userId = req.user?.id;
       const tenantId = req.tenantId;
@@ -72,7 +72,7 @@ export class AuthController {
     }
   }
 
-  async getProfile(req: AuthRequest, res: Response): Promise<void> {
+  async getProfile(req: any, res: Response): Promise<void> {
     try {
       const user = req.user;
 
