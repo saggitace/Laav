@@ -1,7 +1,7 @@
 {
   "name": "laavdesign-backend",
   "version": "1.0.0",
-  "description": "SaaS Backend with Express, Node.js, and MongoDB - Multi-tenant Architecture",
+  "description": "SaaS Backend",
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
@@ -22,6 +22,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/uuid": "^10.0.0",
     "axios": "^1.7.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
@@ -40,14 +41,14 @@
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
-    "@types/cors": "^2.8.17",
-    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^4.17.25",
     "@types/jest": "^29.5.12",
-    "@types/jsonwebtoken": "^9.0.6",
-    "@types/morgan": "^1.9.9",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/morgan": "^1.9.10",
     "@types/multer": "^1.4.11",
-    "@types/node": "^22.0.0",
-    "@types/nodemailer": "^6.4.14",
+    "@types/node": "^22.19.11",
+    "@types/nodemailer": "^6.4.23",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "eslint": "^9.0.0",
