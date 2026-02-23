@@ -1,10 +1,6 @@
-import { Request } from "express";
-
-declare global {
-  namespace Express {
-    interface Request {
-      user?: any;
-      tenant?: any;
-    }
+declare namespace Express {
+  export interface Request {
+    user?: any;
+    tenant?: any;
   }
 }
