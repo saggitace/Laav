@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { authController } from '../controllers/auth.controller.js';
-import { registerValidation, loginValidation, handleValidationErrors } from '../middleware/validation.js';
-import { authMiddleware } from '../middleware/auth.js';
-import { tenantMiddleware } from '../middleware/tenant.js';
+import { authController } from '../controllers/auth.controller';
+import { registerValidation, loginValidation, handleValidationErrors } from '../middleware/validation';
+import { authMiddleware } from '../middleware/auth';
+import { tenantMiddleware } from '../middleware/tenant';
 
 const router = Router();
 

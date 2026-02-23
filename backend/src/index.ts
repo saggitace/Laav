@@ -4,14 +4,14 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import 'dotenv/config';
 
-import { errorHandler, notFoundHandler } from './middleware/tenant.js';
-import { dbService } from './services/database.service.js';
+import { errorHandler, notFoundHandler } from './middleware/tenant';
+import { dbService } from './services/database.service';
 
 // Import routes
-import authRoutes from './routes/auth.routes.js';
-import schoolRoutes from './routes/school.routes.js';
-import erpRoutes from './routes/erp.routes.js';
-import contactRoutes from './routes/contact.routes.js';
+import authRoutes from './routes/auth.routes';
+import schoolRoutes from './routes/school.routes';
+import erpRoutes from './routes/erp.routes';
+import contactRoutes from './routes/contact.routes';
 
 const app = express();
 

@@ -1,7 +1,7 @@
 import { Response, NextFunction } from 'express';
-import { sendError } from '../utils/response.js';
-import { verifyAccessToken, JWTPayload } from '../utils/jwt.js';
-import { AuthRequest } from './tenant.js';
+import { sendError } from '../utils/response';
+import { verifyAccessToken, JWTPayload } from '../utils/jwt';
+import { AuthRequest } from './tenant';
 
 /**
  * Verify JWT token and extract user info

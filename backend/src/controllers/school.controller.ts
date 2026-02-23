@@ -1,8 +1,8 @@
 import { Response } from 'express';
-import { sendSuccess, sendError, sendPaginated } from '../utils/response.js';
-import { schoolService, classService, studentService } from '../services/school.service.js';
-import { AuthRequest } from '../middleware/tenant.js';
-import { parsePaginationParams } from '../utils/helpers.js';
+import { sendSuccess, sendError, sendPaginated } from '../utils/response';
+import { schoolService, classService, studentService } from '../services/school.service';
+import { AuthRequest } from '../middleware/tenant';
+import { parsePaginationParams } from '../utils/helpers';
 
 export class SchoolController {
   async create(req: any, res: Response): Promise<void> {

@@ -1,5 +1,5 @@
-import { dbService } from './database.service.js';
-import { generateId } from '../utils/helpers.js';
+import { dbService } from './database.service';
+import { generateId } from '../utils/helpers';
 
 export class AttendanceService {
   async markAttendance(tenantId: string, data: any) {

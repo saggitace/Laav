@@ -1,23 +1,25 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "ES2020",
+    "moduleResolution": "node",
     "lib": ["ES2020"],
-    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["node"],
     "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "declaration": true,
+    "declarationMap": true,
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
-      // ... keep your other paths
     }
   },
   "include": ["src/**/*"],

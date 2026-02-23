@@ -1,7 +1,7 @@
 import { Response } from 'express';
-import { sendSuccess, sendError } from '../utils/response.js';
-import { authService } from '../services/auth.service.js';
-import { AuthRequest } from '../middleware/tenant.js';
+import { sendSuccess, sendError } from '../utils/response';
+import { authService } from '../services/auth.service';
+import { AuthRequest } from '../middleware/tenant';
 
 export class AuthController {
   async register(req: any, res: Response): Promise<void> {

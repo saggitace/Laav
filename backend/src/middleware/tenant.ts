@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { sendError } from '../utils/response.js';
+import { sendError } from '../utils/response';
 
 export interface AuthRequest extends Request {
   user?: {
