@@ -1,7 +1,7 @@
 import { Response } from 'express';
-import { sendSuccess, sendError } from '../utils/response';
-import { attendanceService, gradeService, feeService, messageService } from '../services/erp.service';
-import { AuthRequest } from '../middleware/tenant';
+import { sendSuccess, sendError } from '../utils/response.js';
+import { attendanceService, gradeService, feeService, messageService } from '../services/erp.service.js';
+import { AuthRequest } from '../middleware/tenant.js';
 
 export class AttendanceController {
   async mark(req: any, res: Response): Promise<void> {

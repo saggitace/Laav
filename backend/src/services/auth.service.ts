@@ -1,7 +1,7 @@
-import { hashPassword, comparePassword } from '../utils/password';
-import { generateAccessToken, generateRefreshToken } from '../utils/jwt';
-import { generateTenantId } from '../utils/helpers';
-import { dbService } from './database.service';
+import { hashPassword, comparePassword } from '../utils/password.js';
+import { generateAccessToken, generateRefreshToken } from '../utils/jwt.js';
+import { generateTenantId } from '../utils/helpers.js';
+import { dbService } from './database.service.js';
 
 export class AuthService {
   async registerTenant(data: any) {
