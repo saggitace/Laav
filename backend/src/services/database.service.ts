@@ -1,5 +1,5 @@
 import { Connection } from 'mongoose';
-import { getTenantConnection, getMainConnection } from '../config/database';
+import { getTenantConnection, getMainConnection } from '../config/database.js';
 import {
   userSchema,
   tenantSchema,
@@ -15,7 +15,7 @@ import {
   messageSchema,
   notificationSchema,
   leaveRequestSchema,
-} from '../schemas/schemas';
+} from '../schemas/schemas.js';
 
 export class DatabaseService {
   private mainConnection!: Connection;

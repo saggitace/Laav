@@ -4,16 +4,16 @@ import {
   gradeController,
   feeController,
   messageController,
-} from '../controllers/erp.controller';
-import { authMiddleware, verifyTenantAccess, requireAdmin } from '../middleware/auth';
-import { tenantMiddleware } from '../middleware/tenant';
+} from '../controllers/erp.controller.js';
+import { authMiddleware, verifyTenantAccess, requireAdmin } from '../middleware/auth.js';
+import { tenantMiddleware } from '../middleware/tenant.js';
 import {
   markAttendanceValidation,
   submitGradeValidation,
   createFeeValidation,
   sendMessageValidation,
   handleValidationErrors,
-} from '../middleware/validation';
+} from '../middleware/validation.js';
 
 const router = Router();
 
